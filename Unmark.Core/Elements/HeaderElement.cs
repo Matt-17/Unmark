@@ -11,7 +11,7 @@ namespace Unmark.Core.Elements
 
 		public HeaderElement()
 		{
-			_regex = new Regex(@"^(#{1,5})\s(.*)");
+			_regex = new Regex(@"^(#{1})\s(.*)");
 			_replacement = "<h1>$2</h1>";
 		}
 

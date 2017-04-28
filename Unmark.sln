@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unmark.Core", "Unmark.Core\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unmark", "Unmark\Unmark.csproj", "{EC1BCE56-7D4F-48A3-B0AB-BD1DFF8C00AF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unmark.Tests", "Unmark.Tests\Unmark.Tests.csproj", "{07A83D66-708B-4DC9-AF21-3CCA4AF4E0A8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{EC1BCE56-7D4F-48A3-B0AB-BD1DFF8C00AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EC1BCE56-7D4F-48A3-B0AB-BD1DFF8C00AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EC1BCE56-7D4F-48A3-B0AB-BD1DFF8C00AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07A83D66-708B-4DC9-AF21-3CCA4AF4E0A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07A83D66-708B-4DC9-AF21-3CCA4AF4E0A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07A83D66-708B-4DC9-AF21-3CCA4AF4E0A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07A83D66-708B-4DC9-AF21-3CCA4AF4E0A8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
