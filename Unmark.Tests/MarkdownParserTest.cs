@@ -22,5 +22,14 @@ namespace Unmark.Tests
 			Assert.Equal(_parser.Parse("#### Test"), "<h4>Test</h4>");
 			Assert.Equal(_parser.Parse("##### Test"), "<h5>Test</h5>");
 		}
+		[Fact]
+		public void TestQuoteLines()
+		{
+			Assert.Equal(_parser.Parse("> Test"), "<blockquote>Test</blockquote>");
+			var s = "This is a test for a longer blockquote. Should work.";
+			Assert.Equal(_parser.Parse($"> {s}"), $"<blockquote>{s}</blockquote>");
+			Assert.Equal(_parser.Parse(" > Test"), " > Test");
+			Assert.Equal(_parser.Parse(">Test"), ">Test");
+		}
 	}
 }

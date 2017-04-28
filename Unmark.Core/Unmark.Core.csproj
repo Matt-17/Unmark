@@ -36,6 +36,7 @@
     <!-- A reference to the entire .NET Framework is automatically included -->
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Elements\QuoteElement.cs" />
     <Compile Include="Elements\HeaderElement.cs" />
     <Compile Include="Elements\IElement.cs" />
     <Compile Include="MarkdownParser\IMarkdownParser.cs" />

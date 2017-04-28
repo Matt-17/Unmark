@@ -9,6 +9,7 @@ namespace Unmark.Core.MarkdownParser
 		public MarkdownParser()
 		{
 			elements.Add(new HeaderElement());
+			elements.Add(new QuoteElement());
 		}
 
 		public string Parse(string input)
