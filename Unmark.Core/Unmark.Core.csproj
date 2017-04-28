@@ -36,8 +36,12 @@
     <!-- A reference to the entire .NET Framework is automatically included -->
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IMarkdownParser.cs" />
-    <Compile Include="MarkdownParser.cs" />
+    <Compile Include="Elements\HeaderElement.cs" />
+    <Compile Include="Elements\IElement.cs" />
+    <Compile Include="MarkdownParser\IMarkdownParser.cs" />
+    <Compile Include="MarkdownParser\MarkdownParser.cs" />
+    <Compile Include="MarkdownParser\MarkdownParserFactory.cs" />
+    <Compile Include="MarkdownParser\MarkdownParserOptions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />

@@ -1,4 +1,4 @@
-﻿namespace Unmark.Core
+﻿namespace Unmark.Core.MarkdownParser
 {
 	public interface IMarkdownParser
 	{
