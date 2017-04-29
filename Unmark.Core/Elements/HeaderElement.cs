@@ -11,7 +11,7 @@ namespace Unmark.Core.Elements
 
 		public HeaderElement()
 		{
-			_regex = new Regex(@"^(#{1})\s(.*)");
+			_regex = new Regex(@"^(#{1,5})\s(.*)");
 			_replacement = "<h1>$2</h1>";
 		}
 
@@ -22,7 +22,15 @@ namespace Unmark.Core.Elements
 
 		public string ProcessLine(string input)
 		{
-			return _regex.Replace(input, _replacement);	
+			var processLine = _regex.Replace(input, new MatchEvaluator(Replace));
+			return processLine;
+		}
+
+		private string Replace(Match match)
+		{
+			var length = match.Groups[1].Length;
+
+			return $"<h{length}>{match.Groups[2]}</h{length}>";
 		}
 	}
 }

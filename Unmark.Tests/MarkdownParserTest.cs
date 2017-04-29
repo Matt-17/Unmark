@@ -21,6 +21,7 @@ namespace Unmark.Tests
 			Assert.Equal(_parser.Parse("### Test"), "<h3>Test</h3>");
 			Assert.Equal(_parser.Parse("#### Test"), "<h4>Test</h4>");
 			Assert.Equal(_parser.Parse("##### Test"), "<h5>Test</h5>");
+			Assert.Equal(_parser.Parse("###### Test"), "###### Test");
 		}
 		[Fact]
 		public void TestQuoteLines()
