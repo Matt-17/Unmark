@@ -32,5 +32,21 @@ namespace Unmark.Tests
 			Assert.Equal(_parser.Parse(" > Test"), " > Test");
 			Assert.Equal(_parser.Parse(">Test"), ">Test");
 		}
+
+		[Fact]
+		public void TestBoldLines()
+		{
+			Assert.Equal(_parser.Parse("**test**"), "<b>test</b>");
+			Assert.Equal(_parser.Parse("This is a **test** line."), "This is a <b>test</b> line.");
+			Assert.Equal(_parser.Parse("This **is** a **test** line with **multiple** entries."), "This <b>is</b> a <b>test</b> line with <b>multiple</b> entries.");
+		}
+		[Fact]
+		public void TestItalicLines()
+		{
+			Assert.Equal(_parser.Parse("*test*"), "<i>test</i>");
+			Assert.Equal(_parser.Parse("This is a *test* line."), "This is a <i>test</i> line.");
+			Assert.Equal(_parser.Parse("This *is* a *test* line with *multiple* entries."), "This <i>is</i> a <i>test</i> line with <i>multiple</i> entries.");
+		}
 	}
-}
+
+	}
