@@ -9,7 +9,7 @@ namespace Unmark
 		static void Main(string[] args)
 		{
 			var parser = MarkdownParserFactory.CreateMarkdownParser();
-			Console.WriteLine(parser.Parse("Hello World!"));
+			Console.WriteLine(parser.Parse("# Test"));
 			Console.ReadLine();
 		}
 	}

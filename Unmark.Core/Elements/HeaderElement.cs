@@ -2,27 +2,16 @@
 
 namespace Unmark.Core.Elements
 {
-	sealed class HeaderElement : IElement
+	sealed class HeaderElement : SingleLineElement
 	{
-		public int Priority => 100;
-
-		private readonly Regex _regex;
-		private readonly string _replacement;
-
-		public HeaderElement()
+		public HeaderElement() 
+			: base(@"^(#{1,5})\s(.*)")
 		{
-			_regex = new Regex(@"^(#{1,5})\s(.*)");
-			_replacement = "<h1>$2</h1>";
 		}
 
-		public bool HasMatch(string input)
+		public override string ProcessLine(string input)
 		{
-			return _regex.IsMatch(input);
-		}
-
-		public string ProcessLine(string input)
-		{
-			var processLine = _regex.Replace(input, new MatchEvaluator(Replace));
+			var processLine = Regex.Replace(input, Replace);
 			return processLine;
 		}
 

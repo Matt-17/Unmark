@@ -8,8 +8,7 @@ namespace Unmark.Core.Elements
 {
 	interface IElement
 	{
-		int Priority { get;  }
+		int Priority { get; }
 		bool HasMatch(string input);
-		string ProcessLine(string input);
 	}
 }

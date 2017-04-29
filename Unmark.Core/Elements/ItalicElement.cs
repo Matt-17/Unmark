@@ -2,27 +2,13 @@ using System.Text.RegularExpressions;
 
 namespace Unmark.Core.Elements
 {
-	sealed class ItalicElement : IElement
+	sealed class ItalicElement : InlineElement
 	{
-		public int Priority => 120;
+		public override int Priority => 120;
 
-		private readonly Regex _regex;
-		private readonly string _replacement;
-
-		public ItalicElement()
+		public ItalicElement() 
+			: base(@"(\*|_)(.*?)\1", "<i>$2</i>")
 		{
-			_regex = new Regex(@"\*(.*?)\*");
-			_replacement = "<i>$1</i>";
-		}
-
-		public bool HasMatch(string input)
-		{
-			return _regex.IsMatch(input);
-		}
-
-		public string ProcessLine(string input)
-		{
-			return _regex.Replace(input, _replacement);
 		}
 	}
 }

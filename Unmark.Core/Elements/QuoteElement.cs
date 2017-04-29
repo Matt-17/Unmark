@@ -2,27 +2,19 @@ using System.Text.RegularExpressions;
 
 namespace Unmark.Core.Elements
 {
-	sealed class QuoteElement : IElement
-	{
-		public int Priority => 100;
-
-		private readonly Regex _regex;
+	sealed class QuoteElement : SingleLineElement
+	{					   
 		private readonly string _replacement;
 
 		public QuoteElement()
+			: base(@"^\>\s(.*)")
 		{
-			_regex = new Regex(@"^\>\s(.*)");
 			_replacement = "<blockquote>$1</blockquote>";
-		}
+		}		   
 
-		public bool HasMatch(string input)
+		public override string ProcessLine(string input)
 		{
-			return _regex.IsMatch(input);
-		}
-
-		public string ProcessLine(string input)
-		{
-			return _regex.Replace(input, _replacement);
+			return Regex.Replace(input, _replacement);
 		}
 	}
 }
