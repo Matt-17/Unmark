@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Unmark": {
+      "commandName": "Project",
+      "commandLineArgs": "-f test.md"
+    }
+  }
+}

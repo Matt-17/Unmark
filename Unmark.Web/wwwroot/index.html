@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html ng-app="unmarkApp">
+<head>
+    <title>index</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script type="text/javascript">
+        angular.module('unmarkApp', [])
+            .controller('UnmarkController', function ($http) {
+                var vm = this;
+                vm.text = "";
+                vm.result = "";
+                vm.convert = function () {
+                    $http
+                        .post("api/values", { text: vm.text })
+                        .then(function (response) {
+                            vm.result = response.data;
+                        });
+                }
+            });
+    </script>
+    <link href="style.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="Container" ng-controller="UnmarkController as unmark">
+        <textarea id="InputField" type="text" ng-model="unmark.text" placeholder="Enter a name here" ng-change="unmark.convert()">
+        </textarea>
+        <pre id="OutputField">{{unmark.result}}</pre>
+    </div>
+</body>
+</html>

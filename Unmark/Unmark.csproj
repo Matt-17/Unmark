@@ -13,4 +13,10 @@
     <ProjectReference Include="..\Unmark.Core\Unmark.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeAnalysis">
+      <HintPath>C:\Users\mv\.nuget\packages\microsoft.codeanalysis.common\1.3.0\lib\netstandard1.3\Microsoft.CodeAnalysis.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

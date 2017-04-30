@@ -40,9 +40,18 @@ namespace Unmark.Core.MarkdownParser
 		/// <returns>The generated HTML code</returns>
 		public string Parse(string inputText)
 		{
-			// split strings by new line
-			var strings = inputText.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None);
+			// split lines by new line char
+			var lines = inputText.Split(new[] {"\r\n", "\r", "\n"}, StringSplitOptions.None);
+			return Parse(lines);
+		}
 
+		/// <summary>
+		/// Parses the text and converts to HTML code
+		/// </summary>
+		/// <param name="lines">Text which should be converted as lines</param>
+		/// <returns>The generated HTML code</returns>
+		public string Parse(string[] lines)
+		{								
 			// create a StringBuilder for the output
 			var sb = new StringBuilder();
 
@@ -50,7 +59,7 @@ namespace Unmark.Core.MarkdownParser
 			MultiLineElement multiLine = null;
 
 			// analyze every line
-			foreach (var input in strings)
+			foreach (var input in lines)
 			{
 				// if already an working multiline ...
 				if (multiLine != null)
