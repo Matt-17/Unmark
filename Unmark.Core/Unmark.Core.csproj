@@ -39,6 +39,7 @@
     <Compile Include="Elements\AbstractElement.cs" />
     <Compile Include="Elements\AbstractLineElement.cs" />
     <Compile Include="Elements\Concrete\BoldElement.cs" />
+    <Compile Include="Elements\Concrete\TextElement.cs" />
     <Compile Include="Elements\InlineElement.cs" />
     <Compile Include="Elements\Concrete\ItalicElement.cs" />
     <Compile Include="Elements\Concrete\ListElement.cs" />
