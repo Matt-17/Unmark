@@ -1,6 +1,4 @@
-using System.Text.RegularExpressions;
-
-namespace Unmark.Core.Elements
+namespace Unmark.Core.Elements.Concrete
 {
 	sealed class ItalicElement : InlineElement
 	{

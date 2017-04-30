@@ -1,6 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 
-namespace Unmark.Core.Elements
+namespace Unmark.Core.Elements.Concrete
 {
 	sealed class HeaderElement : SingleLineElement
 	{
@@ -9,10 +9,9 @@ namespace Unmark.Core.Elements
 		{
 		}
 
-		public override string ProcessLine(string input)
+		public override void ProcessLine(string input)
 		{
-			var processLine = Regex.Replace(input, Replace);
-			return processLine;
+			Line = Regex.Replace(input, Replace);
 		}
 
 		private string Replace(Match match)

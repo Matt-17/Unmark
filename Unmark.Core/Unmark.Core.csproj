@@ -36,11 +36,15 @@
     <!-- A reference to the entire .NET Framework is automatically included -->
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Elements\BoldElement.cs" />
+    <Compile Include="Elements\AbstractElement.cs" />
+    <Compile Include="Elements\AbstractLineElement.cs" />
+    <Compile Include="Elements\Concrete\BoldElement.cs" />
     <Compile Include="Elements\InlineElement.cs" />
-    <Compile Include="Elements\ItalicElement.cs" />
-    <Compile Include="Elements\QuoteElement.cs" />
-    <Compile Include="Elements\HeaderElement.cs" />
+    <Compile Include="Elements\Concrete\ItalicElement.cs" />
+    <Compile Include="Elements\Concrete\ListElement.cs" />
+    <Compile Include="Elements\MultiLineElement.cs" />
+    <Compile Include="Elements\Concrete\QuoteElement.cs" />
+    <Compile Include="Elements\Concrete\HeaderElement.cs" />
     <Compile Include="Elements\IElement.cs" />
     <Compile Include="Elements\SingleLineElement.cs" />
     <Compile Include="MarkdownParser\IMarkdownParser.cs" />

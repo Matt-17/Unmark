@@ -2,18 +2,15 @@
 
 namespace Unmark.Core.Elements
 {
-	abstract class InlineElement : IElement
+	abstract class InlineElement : AbstractElement
 	{
-		public virtual int Priority => 100;
-		protected Regex Regex { get; }
 		protected string Replacement { get; }
 
-		protected InlineElement(string regex, string replacement)
+		protected InlineElement(string regex, string replacement):base(regex)
 		{
-			Regex = new Regex(regex);
 			Replacement = replacement;
 		}
-		public bool HasMatch(string input)
+		public override bool HasMatch(string input)
 		{
 			return Regex.IsMatch(input);
 		}

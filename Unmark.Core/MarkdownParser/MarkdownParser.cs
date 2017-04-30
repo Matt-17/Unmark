@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Unmark.Core.Elements;
+using Unmark.Core.Elements.Concrete;
 
 namespace Unmark.Core.MarkdownParser
 {
@@ -12,11 +13,13 @@ namespace Unmark.Core.MarkdownParser
 
 		public MarkdownParser()
 		{
-			var elements = new List<IElement> {
+			var elements = new List<IElement>
+			{
 				new HeaderElement(),
 				new QuoteElement(),
 				new BoldElement(),
-				new ItalicElement()
+				new ItalicElement()	 ,
+				new ListElement(),
 			};
 
 			// Order them by priority (e.g. *italic* markup after **bold** markup)
@@ -30,20 +33,45 @@ namespace Unmark.Core.MarkdownParser
 			StringBuilder sb = new StringBuilder();
 
 
-
-
+			MultiLineElement multiLine = null;
 
 			foreach (var input in strings)
 			{
-				var s = input;
-				foreach (var element in _elements.OfType<SingleLineElement>())
+				if (multiLine != null)
 				{
-					if (!element.HasMatch(s))
+					if (multiLine.HasMatch(input))
+					{
+						multiLine.ProcessLine(input);
 						continue;
-					s = element.ProcessLine(s);
+					}
+					sb.Append(multiLine.Generate());
+					multiLine = null;
 				}
-				sb.AppendLine(s);
+				var isProcessed = false;
+				foreach (var element in _elements.OfType<AbstractLineElement>())
+				{
+					if (!element.HasMatch(input))
+						continue;
+					isProcessed = true;
+					element.ProcessLine(input);
+					if (element is MultiLineElement multiLineElement)
+					{
+						multiLine = multiLineElement;
+						break;
+					}
+					var s = element.Generate();
+					sb.AppendLine(s);
+					break;
+				}
+				if (!isProcessed)
+					sb.AppendLine(input);
 			}
+
+			if (multiLine != null)
+			{				   
+				sb.Append(multiLine.Generate());
+			}
+
 			var text = sb.ToString();
 
 			foreach (var element in _elements.OfType<InlineElement>())

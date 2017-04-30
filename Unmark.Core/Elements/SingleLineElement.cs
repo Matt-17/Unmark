@@ -1,22 +1,19 @@
-﻿using System.Text.RegularExpressions;
-
-namespace Unmark.Core.Elements
+﻿namespace Unmark.Core.Elements
 {
-	abstract class SingleLineElement : IElement
+	abstract class SingleLineElement : AbstractLineElement
 	{
-		public virtual int Priority => 100;
-		protected Regex Regex { get; }
+		protected string Line;
 
 		protected SingleLineElement(string regex)
+			: base(regex)
 		{
-			Regex = new Regex(regex);
-		}
+		}	   
 
-		public abstract string ProcessLine(string input);				
-
-		public bool HasMatch(string input)
+		public override string Generate()
 		{
-			return Regex.IsMatch(input);
+			var result = Line;
+			Line = null;
+			return result;
 		}
 	}
 }
